@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Jetstream",
-  description: 'A workspace for your team, powered by Stream Chat and Clerk.'
+  description: 'A workspace for your team, powered by Stream Chat and Clerk.',
+  icons: {
+    icon: "/icons/logo.svg"
+  }
 };
 
 export default function RootLayout({
