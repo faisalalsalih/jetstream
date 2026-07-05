@@ -21,7 +21,7 @@ const Sidebar = () => {
 
         {sidebarLinks.map((link) => {
 
-          const isActive = pathname === link.route || pathname.startsWith(link.route);
+          const isActive = pathname === link.route;
 
           return (
 
