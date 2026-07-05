@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Jetstream",
-  description: "Jetstream is an streaming app for meetings",
+  description: 'A workspace for your team, powered by Stream Chat and Clerk.'
 };
 
 export default function RootLayout({
