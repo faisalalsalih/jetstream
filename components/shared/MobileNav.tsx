@@ -34,16 +34,18 @@ const MobileNav = () => {
               src="/icons/logo.svg"
               width={32}
               height={32}
-              alt="yoom logo"
+              alt="jetstream logo"
             />
-            <p className="text-[26px] font-extrabold text-white">YOOM</p>
+            <p className="text-[26px] font-extrabold text-white">Jetstream</p>
           </Link>
 
         <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
 
             <SheetClose asChild>
-              <section className=" flex h-full flex-col gap-6 pt-16 text-white">
+              <section className="flex h-full flex-col gap-6 pt-16 text-white">
+
                 {sidebarLinks.map((item) => {
+                    
                   const isActive = pathname === item.route;
 
                   return (
