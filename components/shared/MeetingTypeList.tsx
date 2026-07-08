@@ -3,9 +3,15 @@
 import React, { useState } from 'react'
 import HomeCard from './HomeCard';
 import { useRouter } from 'next/navigation';
+import MeetingModal from './MeetingModal';
 
 
 const MeetingTypeList = () => {
+
+
+    const createMeeting = () => {
+        
+    }
 
     const router = useRouter();
 
@@ -47,6 +53,15 @@ const MeetingTypeList = () => {
                     className="bg-yellow-1"
                     handleClick={() => router.push('/recordings')}
                 />
+
+
+                <MeetingModal
+                isOpen={meetingState === 'isInstantMeeting'}
+                onClose={() => setMeetingState(undefined)}
+                title="Start an Instance Meeting"
+                className="text-center"
+                buttonText="Start Meeting"
+                handleClick={createMeeting} />
 
 
             </section>
