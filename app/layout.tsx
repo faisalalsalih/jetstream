@@ -3,16 +3,16 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
-
+import { StreamVideoProvider } from "@/providers/StreamVideoProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Jetstream",
-  description: 'A workspace for your team, powered by Stream Chat and Clerk.',
+  description: "A workspace for your team, powered by Stream Chat and Clerk.",
   icons: {
-    icon: "/icons/logo.svg"
-  }
+    icon: "/icons/logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -22,30 +22,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-sans", inter.variable)}>
+      <body className={`${inter.className} bg-dark-2`}>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              socialButtonsBlockButtonText: "text-white",
+              socialButtonsBlockButton: "bg-gray-700",
+            },
+            layout: {
+              logoImageUrl: "/icons/logo.svg",
+            },
+            variables: {
+              colorText: "#fff",
+              colorPrimary: "#0E78F9",
+              colorBackground: "#1c1f2e",
+              colorInputBackground: "#252a41",
+              colorInputText: "#fff",
+            },
+          }}
+        >
 
-      <ClerkProvider
-      appearance={{
-        elements: {
-          socialButtonsBlockButtonText: "text-white",
-          socialButtonsBlockButton: "bg-gray-700",
-        },
-        layout: {
-          logoImageUrl: '/icons/logo.svg'
-        },
-        variables: {
-          colorText: '#fff',
-          colorPrimary: '#0E78F9',
-          colorBackground: '#1c1f2e',
-          colorInputBackground: '#252a41',
-          colorInputText: '#fff'
-        }
-      }}>
-        <body className={`${inter.className} bg-dark-2`}>
-          {children}
-        </body>
-      </ClerkProvider>
+          <StreamVideoProvider>
+            {children}
+          </StreamVideoProvider>
+
+        </ClerkProvider>
+      </body>
       
     </html>
   );
 }
-
