@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { StreamVideoProvider } from "@/providers/StreamVideoProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -44,6 +45,7 @@ export default function RootLayout({
 
           <StreamVideoProvider>
             {children}
+            <Toaster />
           </StreamVideoProvider>
 
         </ClerkProvider>
