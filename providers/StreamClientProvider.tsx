@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
@@ -32,7 +31,7 @@ export const StreamVideoProvider = ({ children } : { children: ReactNode }) => {
       apiKey,
       user: {
         id: user?.id, 
-        name: user?.username,
+        name: user?.username || user?.id,
         image: user?.imageUrl
       },
       tokenProvider
