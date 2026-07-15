@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 
 export const useGetCallById = (id: string | string[]) => {
+
   const [call, setCall] = useState<Call>();
   const [isCallLoading, setIsCallLoading] = useState(true);
 
@@ -18,6 +19,7 @@ export const useGetCallById = (id: string | string[]) => {
         if (calls.length > 0) setCall(calls[0]);
 
         setIsCallLoading(false);
+        
       } catch (error) {
         console.error(error);
         setIsCallLoading(false);

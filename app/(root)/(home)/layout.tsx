@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-
 import Navbar from '@/components/shared/Navbar';
 import Sidebar from '@/components/shared/Sidebar';
+
 
 export const metadata: Metadata = {
   title: 'Jetstream',
