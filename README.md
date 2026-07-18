@@ -1,6 +1,6 @@
 # Jetstream
 
-![Jetstream Overview]("/jetstream/public/screenshots/overview.png")
+![Jetstream Overview]("/screenshots/overview.png")
 
 > Modern Video Conferencing App
 
