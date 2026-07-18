@@ -28,16 +28,18 @@ const Table = ({
 };
 
 const PersonalRoom = () => {
+
   const router = useRouter();
   const { user } = useUser();
   const client = useStreamVideoClient();
   const { toast } = useToast();
 
   const meetingId = user?.id;
-
   const { call } = useGetCallById(meetingId!);
 
+  // Main Function
   const startRoom = async () => {
+
     if (!client || !user) return;
 
     const newCall = client.call("default", meetingId!);
@@ -51,22 +53,28 @@ const PersonalRoom = () => {
     }
 
     router.push(`/meeting/${meetingId}?personal=true`);
+    
   };
 
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
 
   return (
     <section className="flex size-full flex-col gap-10 text-white">
+
       <h1 className="text-xl font-bold lg:text-3xl">Personal Meeting Room</h1>
+
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
-        <Table title="Topic" description={`${user?.username}'s Meeting Room`} />
+        <Table title="Topic" description={`${user?.emailAddresses}'s Meeting Room`} />
         <Table title="Meeting ID" description={meetingId!} />
         <Table title="Invite Link" description={meetingLink} />
       </div>
+      
       <div className="flex gap-5">
+
         <Button className="bg-blue-1" onClick={startRoom}>
           Start Meeting
         </Button>
+
         <Button
           className="bg-dark-3"
           onClick={() => {
@@ -78,7 +86,9 @@ const PersonalRoom = () => {
         >
           Copy Invitation
         </Button>
+
       </div>
+
     </section>
   );
 };
